@@ -4,7 +4,6 @@
 set -e
 
 # XMRig and HWLOC version
-XMRIG_VERSION=6.16.2
 HWLOC_VERSION=2.7.0
 
 # Preferred threads for compile
@@ -36,12 +35,11 @@ make install
 cd ${CURRENT_DIR}/src
 
 # Clone XMRig and checkout to latest version
-git clone -q https://github.com/xmrig/xmrig.git xmrig-v${XMRIG_VERSION}
-git checkout v${XMRIG_VERSION}
+git clone -q https://github.com/xmrig/xmrig.git xmrig
 
 # Install XMRig
-mkdir ${CURRENT_DIR}/src/built/xmrig-v${XMRIG_VERSION}
-cd xmrig-v${XMRIG_VERSION}
+mkdir ${CURRENT_DIR}/src/built/xmrig
+cd xmrig
 mkdir build && cd build
 cmake .. \
   -DHWLOC_INCLUDE_DIR=/data/data/com.termux/files/home/xmrig-on-termux/src/built/hwloc-${HWLOC_VERSION}/include \
@@ -49,5 +47,5 @@ cmake .. \
 make -j${CORES}
 
 # Copy XMRig binary to src/built
-cp ./xmrig ${CURRENT_DIR}/src/built/xmrig-v${XMRIG_VERSION}
+cp ./xmrig ${CURRENT_DIR}/src/built/xmrig
 
