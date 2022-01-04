@@ -1,5 +1,8 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
+# Abort on any errors
+set -e
+
 # XMRig and HWLOC version
 XMRIG_VERSION=6.16.2
 HWLOC_VERSION=2.7.0
