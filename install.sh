@@ -16,8 +16,8 @@ cd ${CURRENT_DIR}
 [[ ! -d src/ ]] && mkdir src
 mkdir src/built
 
-# Install dependencies
-pkg install git build-essential binutils wget
+# Upgrade packages and install dependencies
+pkg upgrade && pkg install git build-essential binutils wget
 
 # Get HWLOC tarball
 wget https://download.open-mpi.org/release/hwloc/v${HWLOC_VERSION:0:-2}/hwloc-${HWLOC_VERSION}.tar.gz
