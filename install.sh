@@ -10,7 +10,7 @@ HWLOC_VERSION=2.7.0
 # Preferred threads for compile
 CORES=4
 
-CURRENT_DIR=$(basename "$0")
+CURRENT_DIR=$(dirname $(readlink -f "$0"))
 cd ${CURRENT_DIR}
 
 [[ ! -d src/ ]] && mkdir src
